@@ -76,4 +76,36 @@ Use CSS for basic styling and to initially hide the hat.
 
 } 
 
+
+// script.js 
+
+ 
+
+function showHat() { 
+
+    var hat = document.getElementById("hat"); 
+
+    hat.classList.remove("hide"); // Show the hat 
+
+ 
+
+    // Hide the hat after 5 seconds 
+
+    setTimeout(function() { 
+
+        hat.classList.add("hide"); 
+
+    }, 5000); 
+
+ 
+
+    // Hide the hat if clicked 
+
+    hat.addEventListener("click", function() { 
+
+        hat.classList.add("hide"); 
+
+    }); 
+
+} 
  
