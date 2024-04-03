@@ -9,3 +9,4 @@
 <!---
 DAdabellas/DAdabellas is a ✨ special ✨ repository because its `
 ![I am Artificial Intelligence - Adabellas LLC](c3dedd51-e752-49ba-b8d1-952db23f4514.webp)
+![super computer](https://github.com/DAdabellas/DAdabellas/assets/165843431/ad2065c9-6b05-459a-998b-e8832138ec3b)
