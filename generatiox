@@ -1,0 +1,13 @@
+import requests
+
+def generate_badge(subject, status, color):
+url = f"https://img.shields.io/badge/{subject}-{status}-{color}"
+response = requests.get(url)
+if response.status_code == 200:
+with open('badge.svg', 'wb') as f:
+f.write(response.content)
+print("Badge created successfully!")
+else:
+print("Failed to create badge.")
+
+generate_badge('Python', '3.8-blue', 'blue')
