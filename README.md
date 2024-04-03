@@ -59,19 +59,3 @@ xml_tre same.entTreerss.
 element
 output_tree write( podcast xml', encoding='
 xml_declaration=True)
-1x
-0:00 / 11:33
-Transcript
-Overview
-Q&A
-Notebook
-RELATED TO THIS COURSE
-Certificates - Show all
-OR
-Ray Villalobos!
-Senior Staff Instructor at Linkedin Learning
-+ Follow on Linkedin
-Search
-Give feedback
-12:01 PM
-4/3/2024
