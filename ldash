@@ -1,0 +1,6 @@
+// Import the package in your code:
+import _ from 'lodash';
+
+// Use the following code to union two arrays:
+let unionArray = _.union([1, 2, 3], [3, 4, 5]);
+// unionArray = [1,2,3,4,5]
