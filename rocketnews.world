@@ -1,1 +1,31 @@
+import ssl
+import socket
+from datetime import datetime
 
+def get_ssl_certificate_details(hostname, port=443):
+    context = ssl.create_default_context()
+    
+    with socket.create_connection((hostname, port)) as sock:
+        with context.wrap_socket(sock, server_hostname=hostname) as ssock:
+            certificate = ssock.getpeercert()
+    
+    # Extract the details you care about
+    cert_details = {
+        "issuer": dict(x[0] for x in certificate["issuer"]),
+        "subject": dict(x[0] for x in certificate["subject"]),
+        "valid_from": certificate["notBefore"],
+        "valid_until": certificate["notAfter"],
+        "version": certificate["version"],
+    }
+    
+    # Optionally, convert dates from string to datetime for easier handling
+    cert_details["valid_from"] = datetime.strptime(cert_details["valid_from"], "%b %d %H:%M:%S %Y %Z")
+    cert_details["valid_until"] = datetime.strptime(cert_details["valid_until"], "%b %d %H:%M:%S %Y %Z")
+    
+    return cert_details
+
+# Example usage:
+hostname = 'www.example.com'
+cert_details = get_ssl_certificate_details(hostname)
+print(f"Certificate details for {hostname}:")
+print(cert_details)
