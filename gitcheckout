@@ -1,0 +1,3 @@
+git checkout --theirs package-lock.json
+git add package-lock.json
+git rebase --continue
