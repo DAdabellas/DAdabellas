@@ -1,0 +1,11 @@
+# Install virtualenv if you haven't
+pip install virtualenv
+
+# Create a virtual environment
+virtualenv ai_env
+
+# Activate the virtual environment
+# On Windows
+ai_env\Scripts\activate
+# On Unix or MacOS
+source ai_env/bin/activate
