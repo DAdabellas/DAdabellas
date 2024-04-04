@@ -1,0 +1,3 @@
+git clone git@github.com:DAdabellas/my-site.git
+cd my-site
+npm install
