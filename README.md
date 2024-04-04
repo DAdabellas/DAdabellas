@@ -108,4 +108,33 @@ function showHat() {
     }); 
 
 } 
- 
+ import requests
+
+# Mock function to represent API call to get the current Bitcoin price
+def get_current_bitcoin_price():
+    # This would be replaced with actual API requests to the cryptocurrency exchange
+    return requests.get("https://api.exchange.com/v1/price/btc").json()['price']
+
+# Mock function to represent API call to buy Bitcoin
+def buy_bitcoin(amount):
+    print(f"Buying {amount} worth of Bitcoin.")
+    # This would be replaced with actual API requests to the cryptocurrency exchange
+
+# Mock function to represent API call to sell Bitcoin
+def sell_bitcoin(amount):
+    print(f"Selling {amount} worth of Bitcoin.")
+    # This would be replaced with actual API requests to the cryptocurrency exchange
+
+def simple_trading_strategy():
+    current_price = get_current_bitcoin_price()
+    if current_price < 50000:  # Example condition
+        buy_bitcoin(100)  # Buy $100 worth of Bitcoin
+    elif current_price > 60000:  # Example condition
+        sell_bitcoin(100)  # Sell $100 worth of Bitcoin
+
+# Main loop that checks the price every hour (as an example)
+if __name__ == "__main__":
+    import time
+    while True:
+        simple_trading_strategy()
+        time.sleep(3600)  # Sleep for 1 hour
