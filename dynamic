@@ -1,0 +1,10 @@
+jobs:
+  check-changes:
+    outputs:
+      should_run: ${{ steps.set_output.outputs.run }}
+    steps:
+    - id: set_output
+      run: echo "::set-output name=run::true"
+  conditional-job:
+    needs: check-changes
+    if: needs.check-changes.outputs.should_run == 'true'
