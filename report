@@ -1,0 +1,5 @@
+- name: Notify Slack
+  if: failure()
+  uses: slackapi/slack-github-action@v1.15.0
+  with:
+    slack-message: 'Deployment to ${{ github.event.inputs.environment }} failed :sad:'
