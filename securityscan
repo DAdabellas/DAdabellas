@@ -1,0 +1,5 @@
+- name: Setup Test Database
+  run: ./scripts/setup-test-db.sh
+- name: Teardown Test Database
+  if: always()
+  run: ./scripts/teardown-test-db.sh
