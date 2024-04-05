@@ -1,0 +1,31 @@
+import hashlib
+import time
+
+def simple_mining(difficulty):
+    """
+    Simulates a simple mining process by finding a hash that starts with 'difficulty' number of zeros.
+    
+    :param difficulty: The number of leading zeros the hash must start with.
+    """
+    prefix = '0' * difficulty  # The prefix to match for the hash
+    nonce = 0  # A nonce is an arbitrary number used only once in a cryptographic communication.
+    start_time = time.time()
+    
+    while True:
+        # Creating a string that includes the nonce and a sample message.
+        input_str = f"Code Companion Block #{nonce}"
+        # Hashing the input string using SHA-256.
+        hash_result = hashlib.sha256(input_str.encode()).hexdigest()
+        
+        # Check if the hash matches the difficulty criteria.
+        if hash_result.startswith(prefix):
+            time_taken = time.time() - start_time
+            print(f"Hash found: {hash_result}")
+            print(f"Nonce: {nonce}")
+            print(f"Time taken: {time_taken} seconds")
+            break  # Exit the loop once a matching hash is found.
+        nonce += 1  # Increment the nonce for the next iteration if not found.
+
+# Set difficulty
+difficulty_level = 4  # Increase this number to simulate higher difficulty
+simple_mining(difficulty_level)
