@@ -1,0 +1,23 @@
+from google.cloud import aiplatform
+
+def create_custom_training_job():
+    project = "YOUR_PROJECT_ID"
+    display_name = "my-custom-training-job"
+    script_path = "path/to/your/train.py"  # Cloud Storage path
+    container_image_uri = "gcr.io/cloud-aiplatform/training/tf-cpu.2-2:latest"  # Example TensorFlow container
+    requirements = ["tensorflow==2.2", "pandas>=1.0.0"]  # Example requirements
+    aiplatform.init(project=project)
+
+    custom_job = aiplatform.CustomJob(
+        display_name=display_name,
+        script_path=script_path,
+        container_uri=container_image_uri,
+        requirements=requirements,
+        project=project,
+    )
+
+    # Submit the job
+    custom_job.run()
+
+if __name__ == "__main__":
+    create_custom_training_job()
