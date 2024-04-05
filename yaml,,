@@ -1,0 +1,153 @@
+- 👋 Hi, I’m @DAdabellas
+- 👀 I’m interested in ...
+- 🌱 I’m currently learning ...
+- 💞️ I’m looking to collaborate on ...
+- 📫 How to reach me ...
+- 😄 Pronouns: ...
+- ⚡ Fun fact: ...
+
+<!---
+DAdabellas/DAdabellas is a ✨ special ✨ repository because its `
+![I am Artificial Intelligence - Adabellas LLC](c3dedd51-e752-49ba-b8d1-952db23f4514.webp)
+![super computer](https://github.com/DAdabellas/DAdabellas/assets/165843431/ad2065c9-6b05-459a-998b-e8832138ec3b)
+<!DOCTYPE html>
+
+<html lang="en"> 
+
+<head> 
+
+    <meta charset="UTF-8"> 
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+
+    <title>Fit Hub - Disappearing Hat</title> 
+
+    <link rel="stylesheet" href="style.css"> 
+
+</head> 
+
+<body> 
+
+ 
+
+<div id="hat" class="hide"> 
+
+    <img src="hat.png" alt="Reward Hat" width="100"> 
+
+</div> 
+
+ 
+
+<button onclick="showHat()">Complete Daily Goal</button> 
+
+ 
+
+<script src="script.js"></script> 
+
+</body> 
+
+</html> 
+
+ 
+
+CSS (Style) 
+
+ 
+
+Use CSS for basic styling and to initially hide the hat. 
+
+ 
+
+/* style.css */ 
+
+#hat { 
+
+    text-align: center; 
+
+    margin: 20px; 
+
+} 
+
+ 
+
+.hide { 
+
+    display: none; 
+
+} 
+
+
+// script.js 
+
+ 
+
+function showHat() { 
+
+    var hat = document.getElementById("hat"); 
+
+    hat.classList.remove("hide"); // Show the hat 
+
+ 
+
+    // Hide the hat after 5 seconds 
+
+    setTimeout(function() { 
+
+        hat.classList.add("hide"); 
+
+    }, 5000); 
+
+ 
+
+    // Hide the hat if clicked 
+
+    hat.addEventListener("click", function() { 
+
+        hat.classList.add("hide"); 
+
+    }); 
+
+} 
+ 
+/* Add to your style.css */
+#hat img {
+    transition: transform 1s, filter 1s; /* Smooth transformation for size and color */
+}
+
+.magic {
+    transform: scale(1.5); /* Enlarge the hat */
+    filter: hue-rotate(90deg); /* Change the color */
+}
+function showHat() {
+    var hat = document.getElementById("hat");
+    hat.classList.remove("hide"); // Show the hat
+
+    // Add magical transformation
+    setTimeout(function() {
+        hat.classList.add("magic"); // Apply magical effects
+
+        // Randomize transformations for next appearance
+        const scale = 1 + Math.random(); // Random scale from 1 to 2
+        const hue = Math.floor(Math.random() * 360); // Random color rotation
+        hat.style.transform = `scale(${scale})`;
+        hat.style.filter = `hue-rotate(${hue}deg)`;
+
+    }, 1000); // Wait a bit before applying magic to let it appear first
+
+    // Hide the hat after 5 seconds and remove magical effects
+    setTimeout(function() {
+        hat.classList.add("hide");
+        hat.classList.remove("magic"); // Reset magic effects for next time
+    }, 5000);
+
+    // Hide the hat if clicked and remove magical effects
+    hat.addEventListener("click", function() {
+        hat.classList.add("hide");
+        hat.classList.remove("magic"); // Reset magic effects for next time
+    });
+}
+// Show a magical message when the hat is clicked
+hat.onclick = function() {
+    alert("✨ Poof! The magic hat teleports away! ✨");
+    hat.classList.add("hide");
+};
