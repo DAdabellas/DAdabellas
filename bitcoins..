@@ -1,0 +1,33 @@
+import subprocess
+import time
+
+def mine_and_save(output_file, mining_command):
+    """
+    Starts the mining process and saves the output to a file.
+    
+    :param output_file: Path to the file where mining output will be saved.
+    :param mining_command: Command to start the mining software.
+    """
+    start_time = time.time()
+    # Start the mining process
+    process = subprocess.Popen(mining_command, stdout=subprocess.PIPE, stderr=subprocess.STDOUT, shell=True)
+
+    # Wait for a certain condition or time before stopping
+    # This is a simple duration-based example
+    mining_duration = 3600  # Example: 1 hour
+    while True:
+        if time.time() - start_time > mining_duration:
+            process.terminate()
+            break
+
+    # Save the output
+    output, errors = process.communicate()
+    with open(output_file, 'wb') as file:
+        file.write(output)
+
+    print("Mining finished and output saved.")
+
+# Example usage
+output_path = "mining_output.txt"
+mining_cmd = "path/to/mining_software --options"
+mine_and_save(output_path, mining_cmd)
